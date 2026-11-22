@@ -505,25 +505,23 @@ def draw_map(cv, x, y, w, h, pins):
 LEADS = [
     ("COP31 COLLAPSES:",
      "NO CLIMATE DEAL",
-     "Antalya ends after 2 weeks + 2 days overtime with no deal. EU, UK and "
-     "island states rejected the draft: it never named fossil fuels.",
+     "Antalya ends in no deal after 2 weeks + 2 days overtime. EU, UK, "
+     "island states rejected a draft silent on fossil fuels.",
      draw_cop),
     ("DRONE FLATTENS",
      "FLAT, 14 MISSING",
-     "Russian drone hit a 5-storey block in Dymer, north of Kyiv, "
-     "collapsing one stairwell. 14 unaccounted for; 9 evacuated. 2 bodies "
-     "found.",
+     "Russian drone hits 5-storey block in Dymer, north of Kyiv; stairwell "
+     "collapses. 14 missing, 9 evacuated, 2 bodies found.",
      draw_dymer),
     ("GULF STANDOFF:",
      "BAHRAIN HIT",
      "Iranian projectiles hit a civilian site in Bahrain; 2 hurt, 1 "
-     "critical. Two Hong Kong tankers hit near Hormuz. 14+ tankers wait at "
-     "Kharg.",
+     "critical. Two Hong Kong tankers hit near Hormuz; 14+ wait at Kharg.",
      draw_gulf),
 ]
 
 MEDIUM = [
-    ("SECOND RUSSIAN SHIP HIT IN 24H",
+    ("2ND RUSSIAN SHIP HIT IN 24H",
      "Dawn blast hits the corvette Merkury at Benghazi naval base in Libya. "
      "Drone attack suspected; injuries, no deaths reported. Axios: "
      "Ukraine's SBU blamed."),
@@ -531,38 +529,38 @@ MEDIUM = [
      "Russian cargo ship hit by drones on Saturday still burns in the Gulf "
      "of Finland despite overnight firefighting. All 16 crew evacuated. "
      "Finland: Ukraine likely behind it."),
-    ("3 RUSSIAN MISSILES OVER POLAND",
+    ("3 RUSSIAN KH-101 OVER POLAND",
      "Prosecutors say all three objects that flew in on Friday were Kh-101 "
      "missiles, made in Q4 2026 - not drones as first thought. NATO meets "
      "Monday."),
-    ("SETTLERS TORCH CARS IN WEST BANK",
+    ("SETTLERS TORCHED CARS IN WEST BANK",
      "Israeli settlers set fire to 12 vehicles and sprayed racist graffiti "
      "in four villages near Ramallah and in the South Hebron Hills. No "
      "injuries; police investigating."),
-    ("DRONES HIT KHARTOUM",
+    ("DRONES STRIKE KHARTOUM",
      "Early-morning drone strikes kill four in and around Sudan's capital "
      "and damage a UN building while staff were inside. RSF blamed in "
      "local reports."),
-    ("S. KOREA EDUCATION MINISTER RESIGNS",
+    ("SEOUL EDUCATION MINISTER RESIGNS",
      "Choi Kyo-jin quits after last-minute measures to stop AI-assisted "
      "cheating in the national college entrance exam caused chaos."),
     ("TRUMP BACKS 10% CARD CAP",
      "Trump says he will work with the incoming Democratic Congress to cap "
      "credit-card interest at 10%, far below today's median of about 22.2%. "
      "No law yet."),
-    ("PUTIN NOT A FRIEND",
+    ("PUTIN 'NOT A FRIEND'",
      "DNI Jay Clayton says Putin is 'not America's friend' on Ukraine, days "
      "after Trump praised him. Trump: hard to work with Schumer as Senate "
      "leader."),
-    ("LIVERPOOL ROUT MAN UTD 4-0",
+    ("LIVERPOOL THRASH UTD 4-0",
      "Liverpool thrash 10-man Man Utd 4-0 at Anfield: Szoboszlai 10', Wirtz "
      "13', Ngumoha 66', Munoz 82'. Yoro sent off 8'. Pochettino's first "
      "game. Hull beat Brighton 2-0."),
-    ("INDIA DECLARE 720/9 IN WELLINGTON",
+    ("INDIA DECLARES 720/9 IN WELLINGTON",
      "India declare at 720/9 on Day 4 - the highest Test innings ever on New "
      "Zealand soil. Rahul 136, Pant 128. At stumps NZ 119/2, still 233 "
      "behind."),
-    ("NEPAL'S PM ARRIVES IN INDIA",
+    ("NEPAL PM LANDS IN INDIA",
      "PM Balendra (Balen) Shah reaches New Delhi for a two-day state visit - "
      "his first trip to India since taking office in March and his first "
      "bilateral visit abroad."),
@@ -659,13 +657,13 @@ def build():
         cv.frame(x, ly, lw, lh, NAVY)
         cv.rect(x, ly, lw, 20, NAVY)
         cv.text_c(x + lw // 2, ly + 4, "LEAD %d" % (i + 1), 2, WHITE)
-        draw(cv, x + 8, ly + 26, lw - 16, 84)
-        hy = ly + 116
+        draw(cv, x + 8, ly + 20, lw - 16, 84)
+        hy = ly + 106
         cv.text(x + 8, hy, h1, 3, RED if i else NAVY)
         cv.text(x + 8, hy + 24, h2, 3, RED if i else NAVY)
-        lines = cv.wrap(body, 25)
+        lines = cv.wrap(body, 26)
         for k, ln in enumerate(lines[:6]):
-            cv.text(x + 8, hy + 46 + k * 11, ln, 2, INK)
+            cv.text(x + 8, hy + 46 + k * 17, ln, 2, INK)
 
     # ---- medium grid ----
     my, mh = 310, 100
@@ -680,12 +678,12 @@ def build():
         cv.text(x + 9 if i + 1 < 10 else x + 6, y + 4, "M%d" % (i + 1), 1,
                 WHITE)
         ICONS[i](cv, x + mw - 32, y + 2, NAVY2)
-        hl = cv.wrap(head, 18)
+        hl = cv.wrap(head, 19)
         for k, ln in enumerate(hl[:2]):
-            cv.text(x + 8, y + 20 + k * 14, ln, 2, NAVY)
+            cv.text(x + 8, y + 20 + k * 17, ln, 2, NAVY)
         lines = cv.wrap(body, 39)
         for k, ln in enumerate(lines[:5]):
-            cv.text(x + 8, y + 50 + k * 9, ln, 1, INK)
+            cv.text(x + 8, y + 54 + k * 9, ln, 1, INK)
 
     # ---- map ----
     y = 628
